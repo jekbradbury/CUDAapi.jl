@@ -160,7 +160,7 @@ const cuda_versions = Dict(
 # simplified find_library/find_binary entry-points,
 # looking up name aliases and known version numbers
 # and passing the (optional) toolkit dirs as locations.
-find_cuda_library(name::String, toolkit_dirs::Vector{String}=String[];
+find_cuda_library(name::String, toolkit_dirs::Vector{String}=["/usr/local/cuda"];
                   versions::Vector{VersionNumber}=reverse(get(cuda_versions, name, cuda_versions["toolkit"])),
                   kwargs...) =
     find_library(get(cuda_names, name, [name]);
